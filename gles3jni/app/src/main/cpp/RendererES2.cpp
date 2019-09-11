@@ -58,8 +58,8 @@ private:
     GLint mScaleRotUniform;
     GLint mOffsetUniform;
 
-    float mOffsets[2*MAX_INSTANCES];
-    float mScaleRot[4*MAX_INSTANCES];   // array of 2x2 column-major matrices
+    float mOffsets[2*MAX_INSTANCES_ITEM];
+    float mScaleRot[4*MAX_INSTANCES_ITEM];   // array of 2x2 column-major matrices
 };
 
 Renderer* createES2Renderer() {

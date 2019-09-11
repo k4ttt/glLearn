@@ -48,10 +48,9 @@
 // Types, functions, and data used by both ES2 and ES3 renderers.
 // Defined in gles3jni.cpp.
 
-#define MAX_INSTANCES_PER_SIDE 16
-#define MAX_INSTANCES   (MAX_INSTANCES_PER_SIDE * MAX_INSTANCES_PER_SIDE)
+#define MAX_INSTANCES_ITEM 50000
 #define TWO_PI          (2.0 * M_PI)
-#define MAX_ROT_SPEED   (0.3 * TWO_PI)
+#define MAX_ROT_SPEED   (2 * TWO_PI)
 
 // This demo uses three coordinate spaces:
 // - The model (a quad) is in a [-1 .. 1]^2 space
@@ -105,9 +104,13 @@ private:
 
     unsigned int mNumInstances;
     float mScale[2];
-    float mAngularVelocity[MAX_INSTANCES];
+    float mAngularVelocity[MAX_INSTANCES_ITEM*2];
     uint64_t mLastFrameNs;
-    float mAngles[MAX_INSTANCES];
+    float mAngles[MAX_INSTANCES_ITEM*2];
+    float* localOffset;
+    double offsetRatio;
+    float* mVx;
+    float* mVy;
 };
 
 extern Renderer* createES2Renderer();
